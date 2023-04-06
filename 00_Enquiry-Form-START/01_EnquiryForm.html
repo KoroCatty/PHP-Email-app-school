@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reference an External Styesheet (make our Form look a bit nicer!) -->
+  <!-- NOTE: We can also embed this in internal styles tag in the head.  We have done this for the solutions to clean up the library.  Use either! -->
+  <link rel="stylesheet" href="style.css">
+  <title>Enquiry Form</title>
+</head>
+<body>
+  <h2>My CSS Enquiry Form</h2>
+  <p>Wow this looks much better</p>
+  
+  <!-- NOTES on the FORM -->
+  <!-- IMPORTANT 1: Look at the FORM method we are using on Line 21!  We are using the GET method - so the information from the form will get passed to the URL and to our php file for processing! -->
+
+  <!-- IMPORTANT 2: Note the different variables we will be sending under the "name" attributes for each input field -->
+
+  <div class="container">
+
+
+    <form action="submit.php" method="get">
+
+      <!-- Row 1 - First Name -->
+      <div class="row">
+        <div class="col-25">
+          <label for="name">First Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="name" name="name" placeholder="Your name..">
+        </div>
+      </div>
+        
+      <!-- Row 2 - Email -->
+      <div class="row">
+        <div class="col-25">
+          <label for="email">Email</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="email" name="email" placeholder="Your email..">
+        </div>
+      </div>
+        
+      <!-- Row 3 - Options Dropdown -->
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Regarding</label>
+        </div>
+        <div class="col-75">
+          <select id="regards" name="regards">
+            <option value="sales">Sales</option>
+            <option value="purchases">Purchases</option>
+            <option value="management">Managment</option>
+          </select>
+        </div>
+      </div>
+        
+      <!-- Row 4 - Subject -->
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Subject</label>
+        </div>
+        <div class="col-75">
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+      </div>
+        
+      <!-- Row 5 - Submit Button -->
+      <div class="row">
+        <input type="submit" value="Submit">
+      </div>
+        
+      
+    </form>
+  </div>
+</body>
+</html>

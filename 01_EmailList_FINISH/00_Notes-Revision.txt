@@ -1,0 +1,55 @@
+[B5] EMAIL LIST APP
+
+PURPOSE: A small application that will effectively run like a Mailchimp subscription application.  It will:
+  - save new users to our database
+  - allow us to see, edit and delete the saved users
+  - allow us to email the users (only if hosted on a web host using their email services!)
+
+SETUP STEPS [REVISION]:
+A. Review the Form:
+  - Make note of the structure (addition of Bootstrap 5.0 structure & FontAwesome logos)
+  - Bootstrap structure has just integrated a nav & a form (within a fluid container)
+  - No GET/POST methods referenced on the form YET!
+
+
+B. Setup the Database [CLASS CHALLENGE: 15MINS]
+  - We need to go to phpMyAdmin and create our database & table, as we need to create the "boxes" that will accept the data we are sending via GET from the form
+  - NOTE: To help, use the cheat sheet PDF with all SQL commands!
+
+  (1) Create a database called "emailListDB", using SQL
+  (2) Create a table called "tblEmailList" with the following columns: "id" (primary key), "fname", "lname" & "email" & - all are varchar(255) except for the id & all fields are REQUIRED
+  (3) Manually insert two new rows into the database (using SQL):
+    --> User 1: Daniel Fitzsimmons (id = 10) & Fitzy@gmail.com
+    --> User 2: Alex Bicknell (id = 11) & Bicky@gmail.com
+
+
+C. Create & Write our addUser.php script to connect & query the DB [CLASS CHALLENGE: 30MINS]
+  - FIRST! Adjust our Form on index.php to include an ACTION and a METHOD (POST)
+
+  - THEN - Create new page called "addUser.php" & create our DB connection & add User script (like the enquiry form app!)
+  --> This page is where we will go to once the script has been executed (it will be displayed, so include HTML & our styling scripts in the <head>!)
+
+  (1) Save our Database Config to Variables
+    - NOTE: The new database name!
+
+  (2) Create connection variable with database
+    - NOTE: We adjust this to use Object Oriented Programming (OOP) rather than procedural, due to benefits of OOP.  
+    - PREVIOUS VERSION: $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+    - For more on OOP: https://www.w3schools.com/php/php_oop_what_is.asp 
+
+  (3) Check connection with DB
+    - NOTE: With OOP, our connection call is slightly different too!
+    - SYNTAX: Standard PHP OOP reads as object->method
+
+    - For more on mysqli object: https://www.w3schools.com/php/func_mysqli_connect.asp 
+
+  (4) SQL Validation
+  (5) Save SQL Command to Variable
+
+  (6) Issue our query to DB
+  - NOTE: In this case, we're shortening the previous example into just one BIG if statement, rather than storing the result
+  - ALSO NOTE: Because we're using OOP, we just reference the object & the method we want RATHER THAN issuing a connection call everytime!
+  - PREVIOUS VERSION: $result = mysqli_query($conn, $sql);
+
+  (7) End Connection & Test by Entering New User to the Form on Main Page

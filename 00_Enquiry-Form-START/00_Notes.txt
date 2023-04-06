@@ -1,0 +1,29 @@
+[B4] ENQUIRY FORM
+- NOW with all the groundwork complete, we can start to build our first PHP applications!
+
+- IN GENERAL: This enquiry form will take some inputs, pass them via GET method to the URL & our php file to execute a series of commands that will eventually insert these values into our phpMyAdmin database!
+
+
+SETUP STEPS:
+A. Review the Form:
+  - Make note of the structure & CSS (which is external BUT is internal in the solution)
+  - Look at the general structure of the form, and in particular, ensure you notice the form method we have referenced ("GET") & the different variables we will be sending under the "name" attributes for each input field 
+  - Importantly, the GET method will ensure the information from the form will get passed to the URL and to our php file for processing
+
+
+B. Setup the Database
+  - We need to go to phpMyAdmin and create our database & table, as we need to create the "boxes" that will accept the data we are sending via GET from the form
+  - NOTE: To help, this folder has included the cheat sheet PDF with all SQL commands!
+
+  (1) Create a database called "myFormDB", using SQL
+  (2) Create a table called "myuserdata" with the following columns: "id" (primary key), "name", "email", "regards" & "subject" - all are varchar(255) except for the id 
+
+C. Create & Write our submit.php script to connect & query the DB
+  (1) Save our Database Config to Variables
+  (2) Create connection variable with database
+  (3) Check connection with DB
+  (4) SQL Validation
+  (5) Save SQL Command to DB
+  (6) Issue our query to DB
+
+AND THEN TEST!

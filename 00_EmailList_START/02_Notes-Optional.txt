@@ -1,0 +1,22 @@
+[B5] EMAIL LIST APP
+
+PURPOSE: A small application that will effectively run like a Mailchimp subscription application.  It will:
+  - save new users to our database
+  - allow us to see, edit and delete the saved users
+  - allow us to email the users (only if hosted on a web host using their email services!)
+
+SETUP STEPS [OPTIONAL]:
+H. OPTIONAL - Setup new Email Users Page, to allow us to email a user using WebHost services [NOT FUNCTIONAL UNLESS HOSTED ON WEB HOST SERVER!]
+  (1) Include the header, navbar, connection & footer into our new page (just COPY from index.php up to connection include!)
+
+  (2) Open & Load Emails into Variable
+    - Store SQL & result from DB in variable
+    - NOTE: WHILE LOOP & Output data of each row like with manageUsers.php, but appends it into a list separated by commas
+    - EXAMPLE "Users: Fitzy@gmail.com, Bicky@gmail.com, johnnyd@gmail.com, joey@gmail.com"
+
+  (3) Setup Basic Structure of Email Form 
+
+  (4) Structure the Email by Passing in Emails Variable + Form Data + Web Host Header Information
+    - Declare Variables for Emails, Form Data & Headers
+    - CHECK & UPDATE HEADER INFo: These change to the web host specific details
+    - SEND: Email with Mail function

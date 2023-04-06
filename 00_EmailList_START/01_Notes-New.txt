@@ -1,0 +1,67 @@
+[B5] EMAIL LIST APP
+
+PURPOSE: A small application that will effectively run like a Mailchimp subscription application.  It will:
+  - save new users to our database
+  - allow us to see, edit and delete the saved users
+  - allow us to email the users (only if hosted on a web host using their email services!)
+
+
+SETUP STEPS [NEW STEPS]:
+D. NEW - Refactor our PHP code by using the keyword "include" 
+  - NOTE: We want to be able to use our head, navbar, connection & footer on each page in order to allow us to re-use important code rather than re-write it for every page!
+
+  (1) NEW header.php: Copy everything from !DOCTYPE to </head> and copy to new header file
+  (2) NEW navbar.php: Copy everything & including in our <nav> tag and copy to new navbar file
+  (3) NEW connection.php: Copy the first script tag in addUser.php, which was 1. to 3. and copy to new connection file
+  (4) NEW footer.php: Copy everything from bottom Bootstrap script down to </html>
+
+  - THEN: Using the <?php include 'filename.php' ?>, place replace the areas in index.php & addUser.php to add in the header, navbar, connection & footer areas for both pages
+
+
+E. NEW - Setup new Manage Users Page that will display all Users (and later - allow us to EDIT / DELETE users from DB)
+  (1) Include the header, navbar, connection & footer into our new page (just COPY from index.php up to connection include!)
+
+  (2) Save SQL & Result of DB Query to Variables
+    - Save the SQL query which is SELECTING all Users
+    - Save the Result of the query to database (Boolean value)
+
+  (3) Setup Structure to Display Users
+    - Setup headers & description of page
+    - Setup table header & columns (effectively creating the database table in our browser!)
+
+  (4) [THIS WILL BE CONFUSING!] Call the SQL Query, Store Results in Array & Map to Custom Structure as Rows
+    - We will output data to each row using another sql method (technically, fetches DB data and inserts the rows into an "associative array")
+    - In an array, we can map the array data out to custom structure as new rows!
+    - IMPORTANT: The <th> with the id will allow for a new row of data, for each unique user!  Effectively LOOPS the data for as many users there are!
+
+  (5) Close Connection to Database
+
+
+F. NEW - Setup Edit Users Button & Page (on manageUsers.php)
+  (1) Include the header, navbar, connection & footer into our new page (just COPY from index.php up to connection include!)
+
+  (2) Setup Structure to Display Users 
+    - NOTE: To save time, as its just an edit, we can just copy the original form in index.php & modify that!
+  
+  (3) Setup to Pull Specific User Data into an Edit Form!
+    (a) Strings must be escaped to prevent SQL injection attack
+    (b) Save SQL query, result & array methods to variables
+    (c) Pass dynamic user data, according to ID, into the form to be able to update it, using the "value" attribute 
+
+  (4) Update Script that will edit DB with changed data in inputs
+    (a) Strings must be escaped to prevent SQL injection attack (including other data passed in)
+    (b) Save SQL query to variable
+    (c) Call SQL query & return result based on if successful + close connection
+
+    --> An error message appears after the Update is executed, as it returns us to the same page BUT can no longer access the specific ID! (Minor issue - normally we would do a page redirect after script issued - this is a bit trickier in PHP than JS)
+
+
+G. NEW - Setup Delete Users Button (on manageUsers.php)
+  (1) Include the header, navbar, connection & footer into our new page (just COPY from index.php up to connection include!)
+
+  (2) Setup Basic Structure to Notify Page Change 
+
+  (3) Script to Delete User from DB
+    (a) Strings must be escaped to prevent SQL injection attack
+    (b) Save SQL query to Variable
+    (c) Call SQL query & return result based on if successful + close connection
