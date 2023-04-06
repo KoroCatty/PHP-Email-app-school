@@ -19,4 +19,10 @@
   <script src="https://kit.fontawesome.com/3956b000b9.js" crossorigin="anonymous"></script>
 
   <title>Email List</title>
+
+  <style>
+    body {
+      background-color: rgb(210,210,210);
+    }
+  </style>
 </head>

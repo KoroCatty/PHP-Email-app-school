@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // dbconnection
 include('./includes/Connection.inc.php');
 
@@ -61,7 +63,8 @@ include('./templates/header.php');
               <a href="./EditUser.php">EDIT</a>
             </td>
             <td>
-              <a href="./DeleteUser.php">DELETE</a>
+              <!-- 特定のuserIDのユーザーを消す -->
+              <a href="./DeleteUser.php?id=<?php echo $userId; ?>">DELETE</a>
             </td>
           </tr>
         </tbody>
