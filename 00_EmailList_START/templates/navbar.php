@@ -9,9 +9,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="index.php">Add User</a>
+          <!-- <a class="nav-link" href="index.php">Add User</a> -->
           <a class="nav-link" href="manageUsers.php">Manage Users</a>
-          <a class="nav-link" href="emailUsers.php">Email Users</a>
+          <a class="nav-link" href="Email.php">Email Users</a>
         </div>
       </div>
     </div>

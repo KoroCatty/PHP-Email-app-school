@@ -25,7 +25,7 @@ if (empty($fname) || empty($fname) || empty($email)) {
   if (!$result) {
     echo "<p style='color: red'>Oops! Something went wrong: <span style='color: black'>" . mysqli_error($conn) . "</span></p>";
   } else {
-    echo "<p style='color: darkgreen'>Form submitted</p>";
+    echo "<p class='text-center display-1' style='color: darkgreen'>Form submitted!!!!</p>";
   }
 }
 

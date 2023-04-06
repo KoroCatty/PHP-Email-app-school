@@ -60,11 +60,11 @@ include('./templates/header.php');
             <td><?php echo htmlentities($lname); ?></td>
             <td><?php echo htmlentities($email); ?></td>
             <td>
-              <a href="./EditUser.php">EDIT</a>
+              <a href="./EditUser.php?id=<?php echo $userId; ?>">EDIT</a>
             </td>
             <td>
               <!-- 特定のuserIDのユーザーを消す -->
-              <a href="./DeleteUser.php?id=<?php echo $userId; ?>">DELETE</a>
+                <a  href="./DeleteUser.php?id=<?php echo $userId; ?>">DELETE</a>
             </td>
           </tr>
         </tbody>

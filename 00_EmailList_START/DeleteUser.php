@@ -18,39 +18,35 @@ include('./templates/header.php');
 
 
     <?php
-      $sql = "select * from tblEmailList";
-      $result = mysqli_query($conn, $sql);
+    // まずは全て取得
+    $sql = "select * from tblEmailList";
+    $result = mysqli_query($conn, $sql);
 
-
-
-      // ループで表示。( fetch()は使えないので注意 ) fetches DB data and inserts the rows into an "associative array
-      while ($DbRows = $result->fetch_assoc()) :
-        $userId = $DbRows['id'];
-      endwhile;
-      ?>
-
+    // ループで表示。( fetch()は使えないので注意 ) fetches DB data and inserts the rows into an "associative array idのみループする
+    while ($DbRows = $result->fetch_assoc()) :
+      $userId = $DbRows['id'];
+    endwhile;
+    ?>
 
     <?php
-    // DELETE a row
-    if (isset($userId) ){
-      $sql = "DELETE FROM tblEmailList WHERE id='$userId'";
+    // URL tab から取得
+    $id = $_GET['id']; // ex) 11
 
-      // $execute = $conn->query($sql);
+    // DELETE a row
+    if (isset($userId)) {
+      $sql = "DELETE FROM tblEmailList WHERE id= $id";
+
       $execute = mysqli_query($conn, $sql);
-  
+
+      // メッセージを表示
       if ($execute) {
-        echo 
+        echo
         "<p class='display-1 text-danger text-center'>Successfully Deleted a User!!
         </p>";
       } else {
         echo "failed to delete";
       }
     }
-
-
-
-
-
 
     ?>
   </div>

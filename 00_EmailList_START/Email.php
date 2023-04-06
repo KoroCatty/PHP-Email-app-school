@@ -6,18 +6,6 @@
 include('./templates/header.php');
 ?>
 
-<?php
-// =======================================
-// リダイレクト　function
-// =======================================
-// function Redirect_to($New_Location)
-// {
-//   header("Location:" . $New_Location); // go to this location
-//   exit;
-// }
-?>
-
-
 <body>
   <?php
   include('./templates/navbar.php');
@@ -29,19 +17,31 @@ include('./templates/header.php');
 
     <?php
     // Form Validation
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['send'])) {
+      $error = []; // 初期化
 
       $fname = $_POST['fname'];
       $lname = $_POST['lname'];
       $email = $_POST['email'];
+      $message = $_POST['message'];
 
-      echo $fname;
+      // mb_language("Japanese");
+      // mb_internal_encoding("UTF-8");
 
 
-      if ( empty($fname)  || empty($lname) || empty($email)) {
-    header("Location: index.php"); // go to this location
-  exit();
-      }
+      // Form Validation
+        // エラー設定
+        if ($_POST['fname'] === '') {
+        $error['fname'] = 'blank';
+        }
+
+
+
+        echo "Fill out the form properly!!!";
+
+        // 成功時
+ 
+      
     }
 
 
@@ -51,12 +51,17 @@ include('./templates/header.php');
     <!-- ------------ -->
     <!-- Form : START -->
     <!-- ------------ -->
-    <form action="./addUser.php" method="POST" class="row align-items-center gx-3 gy-2">
+    <form action="" method="POST" class="row align-items-center gx-3 gy-2">
 
       <!-- fname -->
       <div class="col-sm-3">
         <label class="visually-hidden" for="fname">First Name</label>
         <input type="text" class="form-control" placeholder="First Name" name="fname">
+        <?php 
+        // 空の時にエラー表示
+        if ($error['fname'] === 'blank') : ?>
+          <p class="">Fill in the Name!!</p>
+        <?php endif; ?>
       </div>
 
       <!-- lname -->
@@ -71,18 +76,16 @@ include('./templates/header.php');
         <input type="text" class="form-control" placeholder="Email" name="email">
       </div>
 
+      <!-- text -->
+      <textarea name="message" id="" cols="30" rows="10"></textarea>
+
       <!-- Submit -->
       <div class="col-sm-3">
-        <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+        <button name="send" type="submit" class="btn btn-primary">Send</button>
       </div>
     </form>
     <!-- Form: END -->
 
-    <div class="links">
-      <a href="./index.php">Index.php</a>
-      <a href="./manageUsers.php">Index.php</a>
-      <a href="./addUsers.php">Index.php</a>
-    </div>
 
   </div>
 
